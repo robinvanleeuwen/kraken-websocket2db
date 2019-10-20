@@ -1,7 +1,7 @@
 from kraken_wsclient_py import kraken_wsclient_py as kraken_client
-from config import MODE, PAIRS_TO_WATCH, TZ_AMS, TZ_UTC, app_config
+from config import PAIRS_TO_WATCH
 from db import db
-from db.models import Trades
+from db import Trades
 from log import log
 
 

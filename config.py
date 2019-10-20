@@ -43,8 +43,6 @@ def get_db_config(filename=None):
         return settings
 
 
-
-
 class Config(object):
     db_config = get_db_config()
 
