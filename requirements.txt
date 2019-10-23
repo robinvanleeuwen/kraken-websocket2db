@@ -36,3 +36,4 @@ Twisted==19.7.0
 txaio==18.8.1
 Werkzeug==0.16.0
 zope.interface==4.6.0
+wheel==0.33.6

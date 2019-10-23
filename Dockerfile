@@ -1,6 +1,11 @@
-FROM alpine:latest
+FROM htpc:5000/kraken-websocket2db-base:v1
 MAINTAINER Robin van Leeuwen <robinvanleeuwen@gmail.com>
-RUN apk add python3 g++ make postgresql-libs libffi-dev python3-dev
-RUN git clone https://github.com/robinvanleeuwen/kraken-websocket2db.git
-RUN cd kraken-websocker2db; pip3 install -r requirements.txt
-CMD ["cd kraken-websocket2db; python3 app.py"]
+
+ENV APP_SETTINGS='production'
+
+WORKDIR /kraken-websocket2db
+RUN mkdir /root/.kraken
+COPY db_settings.conf /root/.kraken/
+RUN git pull
+RUN pip3 install -r requirements.txt
+CMD ["python3", "app.py"]

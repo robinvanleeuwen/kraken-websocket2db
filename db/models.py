@@ -1,6 +1,5 @@
-from sqlalchemy import *
-from sqlalchemy.orm import relationship
 from db import db
+from sqlalchemy import Column, Index, Text, Integer, Numeric, CHAR
 
 
 class Ticker(db.Model):
@@ -46,35 +45,6 @@ class Ticker(db.Model):
     timestamp = Column(Numeric(18, 5))
 
 
-class Users(db.Model):
-    __tablename__ = "users"
-    __table_args__ = (
-        Index("idx_name", "name"),
-    )
-
-    id = Column(Integer, primary_key=True)
-    name = Column(Text, unique=True)
-    password = Column(Text)
-
-
-class Tokens(db.Model):
-
-    __tablename__ = "tokens"
-    __table_args__ = (
-        Index("idx_token", "token"),
-    )
-
-    id = Column(Integer(), primary_key=True)
-    token = Column(Text(), unique=True)
-    user_id = Column(Integer(), ForeignKey("users.id"))
-    timestamp = Column(DateTime())
-    ttl_max = Column(DateTime())
-    ttl_increment = Column(Integer())
-    last_ip_address = Column(Text())
-
-    user = relationship("Users", foreign_keys=[user_id])
-
-
 class Trades(db.Model):
 
     __tablename__ = "trades"
@@ -90,3 +60,12 @@ class Trades(db.Model):
     side = Column(Text())
     order_type = Column(Text())
     misc = Column(Text())
+
+
+
+class ActiveAPI(db.Model):
+
+    __tablename__ = "active_api"
+
+    api_name = Column(Text(), primary_key=True)
+    api_key = Column(Text())

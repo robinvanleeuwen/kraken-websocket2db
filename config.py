@@ -2,12 +2,17 @@ import sys
 import os
 import json
 from pathlib import Path
+from uuid import uuid4
 
 from dateutil import tz
 
 from log import log
 
 PAIRS_TO_WATCH = ["XBT/EUR", "XLM/EUR", "ETH/EUR", "XRP/EUR"]
+
+API_KEYS = {
+    "trade": uuid4(),
+}
 
 TZ_UTC = tz.gettz('UTC')
 TZ_AMS = tz.gettz('Europe/Amsterdam')
