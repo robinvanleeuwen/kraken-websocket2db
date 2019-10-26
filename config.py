@@ -12,6 +12,8 @@ PAIRS_TO_WATCH = ["XBT/EUR", "XLM/EUR", "ETH/EUR", "XRP/EUR"]
 
 API_KEYS = {
     "trade": uuid4(),
+    "book": uuid4(),
+    "book-10": uuid4(),
 }
 
 TZ_UTC = tz.gettz('UTC')

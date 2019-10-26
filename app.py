@@ -23,5 +23,6 @@ app = create_app()
 
 
 if __name__ == '__main__':
-    from trades import setup_kraken_websocket
-    setup_kraken_websocket()
+
+    import trades
+    import book
