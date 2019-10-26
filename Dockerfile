@@ -1,4 +1,4 @@
-FROM htpc:5000/kraken-websocket2db-base:v1
+FROM docker.rldsoftware.nl/kraken-websocket2db-base:v1
 MAINTAINER Robin van Leeuwen <robinvanleeuwen@gmail.com>
 
 ENV APP_SETTINGS='production'
