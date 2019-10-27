@@ -1,9 +1,21 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-    name: kraken-trades-two
+    name: kraken-trades-deployment
+    labels:
+        app: kraken-trades
 spec:
-    containers:
-    - name: kraken-trades-2
-      image: docker.rldsoftware.nl:443/kraken-trades:v2
+    replicas: 1
+    selector:
+        matchLabels:
+            app: kraken-trades
+    template:
+        metadata:
+            labels:
+                app: kraken-trades
+
+        spec:
+            containers:
+            - name: kraken-trades
+              image: docker.rldsoftware.nl/kraken-trades:v3
 
